@@ -8,6 +8,7 @@ int main()
     double ganhoSalario, ganhoServicos, ganhoCapital, gastoMedico, gastoEducacao;
     double impostoSalario, impostoServico, impostoCapital;
     double impostoBruto, maximoDedutivel, gastosDedutiveis;
+    double abatimento, impostoDevido;
 
 
 
@@ -51,6 +52,16 @@ int main()
 
     gastosDedutiveis = gastoEducacao + gastoMedico;
 
+    //CALCULOS FINAIS
+
+    if (gastosDedutiveis > maximoDedutivel){
+        abatimento = maximoDedutivel;
+    }
+    else{
+        abatimento = gastosDedutiveis;
+    }
+    impostoDevido = impostoBruto - abatimento;
+
 
     // RELATORIO
 
@@ -66,6 +77,12 @@ int main()
     printf("Maximo dedutivel: %.2lf\n", maximoDedutivel);
     printf("Gastos dedutiveis: %.2lf\n", gastosDedutiveis);
 
+    //RESUMO
+
+    printf("\n\nRESUMO:\n");
+    printf("Imposto bruto total: %.2lf\n",impostoBruto);
+    printf("Abatimento:%.2lf\n",abatimento);
+    printf("Imposto devido: %.2lf\n",impostoDevido);
 
     return 0;
 }
